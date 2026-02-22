@@ -1,7 +1,7 @@
 # Robinhood Investor Regression Project
 
 ## View Jupyter Notebook Here:
-[View Jupyter Notebook](https://github.com/Scott-Lowder/Play-Web-Games/blob/main/robinhood-analysis.ipynb)
+[View Jupyter Notebook](https://github.com/Scott-Lowder/Robinhood-Investor-Regression-Project/blob/main/robinhood-analysis.ipynb)
 
 ## Research Question
 Is the influence of individual Robinhood investors on a stock's risk level different for small companies versus large companies?
