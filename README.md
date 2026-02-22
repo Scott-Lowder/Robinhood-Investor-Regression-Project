@@ -25,4 +25,36 @@ $$R_{i,t}^2 = \alpha + \beta_1 R_{i,t-1}^2 + \beta_2 \Delta \text{RH}_{i,t-1} + 
 * **$\Delta \text{RH}_{i,t-1}$ (Robinhood Attention):** The percentage change in Robinhood account holders, measured on the previous day.
 * **$\text{SIZE}_i$ (Firm Size):** A rank based on market capitalization, where a higher value represents a relatively **smaller** company.
 * **$\beta_4 (\Delta \text{RH}_{i,t-1} \times \text{SIZE}_i)$ (Key Test):** This is the combined effect of Robinhood attention and small size. If $\beta_4$ is positive and statistically significant, the hypothesis is supported.
+
+## Regression Results
+
+Saved required .npy files: my_y.npy, my_X.npy, my_dates.npy
+
+Estimating Pooled OLS Regression...
+
+================================================================================
+MAIN REGRESSION: RH Attention Predicting Volatility with Size Interaction
+Dependent Variable: Daily Squared Return (R2_t, Proxy for Volatility)
+Null Hypothesis (H0): Coefficient on Delta_RH_x_SIZE is zero (Beta_4 = 0)
+SIZE_Proxy: Higher value means relatively smaller firm.
+================================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   R2_t   R-squared:                       0.195
+Model:                            OLS   Adj. R-squared:                  0.194
+Method:                 Least Squares   F-statistic:                     138.8
+Date:                Sat, 13 Dec 2025   Prob (F-statistic):          2.51e-106
+Time:                        17:20:19   Log-Likelihood:                 11833.
+No. Observations:                2296   AIC:                        -2.366e+04
+Df Residuals:                    2291   BIC:                        -2.363e+04
+Df Model:                           4                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+
+## Interpretation and Conclusion
+Based on the results from the regression, reject the null hypothesis that the coefficient on the interaction term ($\Delta \text{RH}_{i,t-1} \times \text{SIZE}_i$) is zero, using the standard 99% confidence level (since the P-value was $0.000$). The positive and highly significant coefficient on the interaction term ($\beta_4=0.0004$) says that the predictive power of increased Robinhood attention on next-day stock volatility is significantly greater for smaller firms (those with a higher $\text{SIZE}$ proxy value) than for larger firms, validating the research hypothesis that retail trading disproportionately impacts the market behavior of smaller stocks. Moving forward, to further explore this phenomenon, future research should incorporate firm fixed effects to control for unobserved, time-invariant differences between companies (like brand value or risk tolerance) and could also be expanded to include data on short interest as a control variable, testing whether the "Robinhood effect" is distinct from general speculative short squeezes.
+
+
 * **$\eta_{i,t}$ (Error Term):** The residual variance not captured by the independent variables.
